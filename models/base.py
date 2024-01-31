@@ -6,10 +6,10 @@ from sqlalchemy.orm import sessionmaker
 from os import getenv
 
 
-DB_USER = getenv('DB_USER', 'farmer')
-DB_PASSWORD = getenv('DB_PASSWORD', '4711..tofarmeR')
+DB_USER = getenv('DB_USER', 'your_db_user')
+DB_PASSWORD = getenv('DB_PASSWORD', 'your_db_password')
 DB_HOST = getenv('DB_HOST', 'localhost')
-DB_NAME = getenv('DB_NAME', 'fruit_farmer')
+DB_NAME = getenv('DB_NAME', 'your_db_name')
 
 # Create the database URL using the environment variables
 DB_URL = 'mysql://{}:{}@{}/{}'.format(DB_USER,
