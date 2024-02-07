@@ -13,7 +13,7 @@ bcrypt = Bcrypt()
 
 signup_bp = Blueprint('signup', __name__)
 
-@signup_bp.route('/register', methods=['GET', 'POST'])
+@signup_bp.route('/signup', methods=['GET', 'POST'])
 def signup():
     # Output message if something goes wrong...
     msg = ''
