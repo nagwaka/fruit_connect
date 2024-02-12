@@ -11,14 +11,14 @@ body {
     margin: 0;
 }
 
-.register {
+.signup {
     width: 400px;
     background-color: #ffffff;
     box-shadow: 0 0 9px 0 rgba(0, 0, 0, 0.3);
     margin: 100px auto;
 }
 
-.register h1 {
+.signup h1 {
     text-align: center;
     color: #5b6574;
     font-size: 24px;
@@ -87,7 +87,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-    background-color: #2868c7;
+    background-color: #006400;
     transition: background-color 0.2s;
 }
 

@@ -2,6 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_migrate import Migrate
+
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -12,11 +14,12 @@ def create_app():
 
     # SQLAlchemy Configuration
     app.config['SECRET_KEY'] = 'secret-key-goes-here'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:4711..tomysqL@localhost/user_accounts'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'database_url'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)
     login_manager.init_app(app)
+    migrate.init_app(app, db)
 
     # Define the user_loader callback
     @login_manager.user_loader

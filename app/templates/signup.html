@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='signup.css') }}">
 	</head>
 	<body>
-		<div class="register">
+		<div class="signup">
 			<h1>Signup</h1>
 			<div class="links">
 				<a href="{{ url_for('signup.signup') }}" class="active">Signup</a>
@@ -15,13 +15,19 @@
 				<label for="username">
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
-				<label for="password">
-				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
 				<label for="email">
+                                </label>
+                                <input type="email" name="email" placeholder="Email" id="email" required>
+                                <label for="location">
 				</label>
-				<input type="email" name="email" placeholder="Email" id="email" required>
-				<div class="msg">{{ msg }}</div>
+                                <input type="text" name="location" id="location" placeholder="Location" required><br>
+				<label for="password">
+                                </label>
+                                <input type="password" name="password" placeholder="Password" id="password" required>
+                                <div class="msg">{{ msg }}</div>
+				<div class="links">
+					<p> Have account? Login Instead <a href="{{ url_for('login.login') }}" class="active">Login</a></p>
+                                </div>
 				<input type="submit" value="Signup">
 			</form>
 		</div>
