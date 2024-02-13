@@ -10,9 +10,13 @@
 		<h1 class="title">Main Page</h1>
 		{% endblock %}
 		<div class="links">
+			<p>Buyer? 
 			<a href="{{ url_for('login.login') }}">Login</a>
 			<a href="{{ url_for('signup.signup') }}" class="active">Sigup</a>
 		</div>
+		<div class="links">
+                        <p>Seller? <a href="{{ url_for('login.login') }}">Find buyer</a></p>
+                </div>
         </body>
 </html>
 
