@@ -11,7 +11,7 @@ profile_bp = Blueprint('profile', __name__)
 def profile():
     # Check if the user is logged in
     if 'loggedin' in session:
-        # We need all the account info for the user so we can display it on the profile page
+        # Acount info for the user to display on the profile page
         user = User.query.filter_by(id=session['id']).first()
 
         # Show the profile page with account info

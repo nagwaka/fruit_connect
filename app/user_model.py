@@ -7,4 +7,5 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     location = db.Column(db.String(100), nullable=True)
+    product_type = db.Column(db.String(100), nullable=True)
 

@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__)
 
     # SQLAlchemy Configuration
-    app.config['SECRET_KEY'] = 'secret-key-goes-here'
+    app.config['SECRET_KEY'] = 'secret_key_goes_here'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'database_url'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
