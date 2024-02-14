@@ -14,7 +14,7 @@ def create_app():
 
     # SQLAlchemy Configuration
     app.config['SECRET_KEY'] = 'secret_key_goes_here'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'database_url'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:4711..tomysqL@localhost/user_accounts'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.init_app(app)

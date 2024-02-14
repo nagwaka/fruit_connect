@@ -3,19 +3,22 @@
         <head>
                 <meta charset="utf-8">
                 <title>{% block title %}{% endblock %}</title>
-                <link rel="stylesheet" href="{{ url_for('static', filename='base_layout.css') }}">
+                <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
         </head>
         <body class="loggedin">
-		{% block content %}
-		<h1 class="title">Main Page</h1>
-		{% endblock %}
-		<div class="links">
-			<p>Buyer? 
-			<a href="{{ url_for('login.login') }}">Login</a>
-			<a href="{{ url_for('signup.signup') }}" class="active">Sigup</a>
-		</div>
-		<div class="links">
-                        <p>Seller? <a href="{{ url_for('login.login') }}">Find buyer</a></p>
+		<nav class="navtop">
+                        <div>
+                                <h1>FruitiConnect</h1>
+				<p>Buyer? 
+                                <a href="{{ url_for('login.login') }}">Login</a>
+                                <a href="{{ url_for('signup.signup') }}">Signup</a>
+				</p>
+                        </div>
+                </nav>
+		<div class="content">
+                        {% block content %}{% endblock %}
+		<div class="centre-links">
+                        <p>Seller? <a href="{{ url_for('home.home') }}">Find a buyer</a></p>
                 </div>
         </body>
 </html>

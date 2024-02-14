@@ -45,6 +45,31 @@ body.loggedin {
     font-weight: bold;
 }
 
-.navtop div a i {
+.navtop div a  {
     padding: 2
+}
+
+.navtop p {
+    font-weight: bold;
+}
+
+
+.centre-links {
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(50%);
+    width: 100%;
+}
+
+.centre-links a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #006400;
+    font-weight: bold;
+}
+
+.centre-links p {
+    font-weight: bold;
 }
