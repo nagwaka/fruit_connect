@@ -4,7 +4,6 @@ from werkzeug.security import check_password_hash
 from . import db
 from .user_model import User
 import re
-import hashlib
 from flask_bcrypt import Bcrypt
 from flask import session
 
