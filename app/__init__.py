@@ -45,4 +45,7 @@ def create_app():
     from .index import index_bp
     app.register_blueprint(index_bp)
 
+    from .seller import seller_bp
+    app.register_blueprint(seller_bp)
+
     return app

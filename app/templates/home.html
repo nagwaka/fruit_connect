@@ -1,8 +1,43 @@
-{% extends 'base_layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profiles</title>
+</head>
+<body>
+    <h1>User Profiles</h1>
+    <body class="loggedin">
+	    <nav class="navtop">
+		    <div>
+			    <a href="{{ url_for('home.home') }}">Home</a>
+			    <a href="{{ url_for('profile.profile') }}">Profile</a>
+			    <a href="{{ url_for('logout.logout') }}">Logout</a>
+		    </div>
+	    </nav>
 
-{% block title %}Home{% endblock %}
+    {% if user_profiles.items %}
+        <ul>
+            {% for user in user_profiles.items %}
+                <li>
+                    <h2>{{ user.username }}</h2>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Location: {{ user.location }}</p>
+                    <p>Product Type: {{ user.product_type }}</p>
+                </li>
+            {% endfor %}
+        </ul>
 
-{% block content %}
-<h2>Home Page</h2>
-<p>Welcome back, {{ username }}!</p>
-{% endblock %}
+        {% if user_profiles.has_next %}
+            <a href="{{ url_for('home.home', page=user_profiles.next_num) }}">Next</a>
+        {% endif %}
+
+        {% if user_profiles.has_prev %}
+            <a href="{{ url_for('home.home', page=user_profiles.prev_num) }}">Previous</a>
+        {% endif %}
+    {% else %}
+        <p>No other user profiles found.</p>
+    {% endif %}
+</body>
+</html>
+
