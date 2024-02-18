@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_migrate import Migrate
+from flask_babel import Babel
 
 
 db = SQLAlchemy()
@@ -11,6 +12,7 @@ login_manager = LoginManager()
 
 def create_app():
     app = Flask(__name__)
+    babel = Babel(app)
 
     # SQLAlchemy Configuration
     app.config['SECRET_KEY'] = 'secret_key_goes_here'
@@ -36,8 +38,9 @@ def create_app():
     from .home import home_bp
     app.register_blueprint(home_bp)
 
-    from .profile import profile_bp
+    from .profile import profile_bp, edit_profile_bp
     app.register_blueprint(profile_bp)
+    app.register_blueprint(edit_profile_bp)
 
     from .signup import signup_bp
     app.register_blueprint(signup_bp)

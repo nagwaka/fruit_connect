@@ -8,4 +8,5 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     location = db.Column(db.String(100), nullable=True)
     product_type = db.Column(db.String(100), nullable=True)
+    about_me = db.Column(db.Text, nullable=True)
 
