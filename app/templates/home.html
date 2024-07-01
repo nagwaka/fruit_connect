@@ -10,9 +10,6 @@
     <body class="loggedin">
 	    <nav class="navtop">
 		    <div>
-			    <a href="{{ url_for('home.home') }}">Home</a>
-			    <a href="{{ url_for('profile.profile') }}">Profile</a>
-			    <a href="{{ url_for('logout.logout') }}">Logout</a>
 		    </div>
 	    </nav>
 
@@ -20,10 +17,10 @@
         <ul>
             {% for user in user_profiles.items %}
                 <li>
-                    <h2>{{ user.username }}</h2>
-                    <p>Email: {{ user.email }}</p>
-                    <p>Location: {{ user.location }}</p>
-                    <p>Product Type: {{ user.product_type }}</p>
+		    <a href="{{ url_for('profile.profile', user_id=user.id) }}">
+			    <h2>{{ user.username }}</h2>
+			    <p>Gender: {{ user.gender }}</p>
+		   </a>
                 </li>
             {% endfor %}
         </ul>

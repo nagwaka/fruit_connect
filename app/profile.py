@@ -7,14 +7,13 @@ from .user_model import User
 
 profile_bp = Blueprint('profile', __name__)
 
-@profile_bp.route('/profile')
-def profile():
-    # Check if the user is logged in
-    if 'loggedin' in session:
-        # Acount info for the user to display on the profile page
-        user = User.query.filter_by(id=session['id']).first()
-
-        # Show the profile page with account info
+@profile_bp.route('/profile/<int:user_id>')
+def profile(user_id):
+    # Retrieve the user profile using the provided user_id
+    user = User.query.get(user_id)
+    if user:
         return render_template('profile.html', account=user)
-    # User is not logged in redirect to login page
-    return redirect(url_for('login.login'))
+    else:
+        # Handle case where user is not found
+        flash("User not found.", "error")
+        return redirect(url_for('home.home'))

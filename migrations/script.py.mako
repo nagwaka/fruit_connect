@@ -18,7 +18,6 @@ depends_on = ${repr(depends_on)}
 
 def upgrade():
     ${upgrades if upgrades else "pass"}
-    op.add_column('user', sa.Column('product_type', sa.String(length=100), nullable=True))
 
 
 def downgrade():

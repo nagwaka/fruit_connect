@@ -18,14 +18,14 @@ def signup():
     # Output message if something goes wrong...
     msg = ''
     # Check if "username", "password" and "email" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form and 'location' in request.form and 'product_type' in request.form:
-        # Create variables for easy access:
-        # Create variables for easy access
+    if request.method == 'POST' and all(field in request.form for field in ['username', 'password', 'email', 'location', 'product_type', 'gender']):
+        # Get form data
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
         location = request.form['location']
         product_type = request.form['product_type']
+        gender = request.form['gender']
 
         # Check if account exists using SQLAlchemy
         user = User.query.filter_by(username=username).first()
@@ -37,14 +37,14 @@ def signup():
             msg = 'Invalid email address!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers!'
-        elif not username or not password or not email or not location or not product_type:
-            msg = 'Please fill out the form!'
+        elif not all(request.form[field] for field in ['username', 'password', 'email', 'location', 'product_type', 'gender']):
+            msg = 'Please fill out all fields!'
         else:
             # Hash the password using Flask-Bcrypt
             hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
             # Account doesn't exist, and the form data is valid, so insert the new account into the database
-            new_user = User(username=username, password=hashed_password, email=email, location=location, product_type=product_type)
+            new_user = User(username=username, password=hashed_password, email=email, location=location, product_type=product_type, gender=gender)
             db.session.add(new_user)
             db.session.commit()
 
